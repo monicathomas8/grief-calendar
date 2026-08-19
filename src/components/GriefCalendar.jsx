@@ -59,7 +59,7 @@ export default function GriefCalendar() {
           0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
           8% { opacity: 0.75; }
           85% { opacity: 0.5; }
-          100% { transform: translate(620px, -340px) rotate(70deg); opacity: 0; }
+          100% { transform: translate(340px, -190px) rotate(70deg); opacity: 0; }
         }
         @keyframes stemSway {
           0%, 100% { transform: rotate(-2deg); }
@@ -81,9 +81,9 @@ export default function GriefCalendar() {
         }
       `}</style>
 
-      {/* Dandelion background */}
-      <div style={{ position: 'fixed', left: -60, bottom: -40, width: 780, height: 900, pointerEvents: 'none', zIndex: 0 }} aria-hidden="true">
-        <svg width="780" height="900" viewBox="0 0 260 320" className="stem-group" style={{ position: 'absolute', left: 0, top: 0, width: 780, height: 900 }}>
+      {/* Dandelion background — scaled down and tucked in so it clears the card */}
+      <div style={{ position: 'fixed', left: -30, bottom: -20, width: 430, height: 495, pointerEvents: 'none', zIndex: 0 }} aria-hidden="true">
+        <svg width="430" height="495" viewBox="0 0 260 320" className="stem-group" style={{ position: 'absolute', left: 0, top: 0, width: 430, height: 495 }}>
           <path d="M130 320 C 128 260, 132 210, 130 150" stroke="#B0AB92" strokeWidth="2.2" fill="none" />
           {Array.from({ length: 26 }).map((_, i) => {
             const angle = (i / 26) * Math.PI * 1.6 - Math.PI * 0.8;
@@ -103,8 +103,8 @@ export default function GriefCalendar() {
 
         {/* drifting seeds — separate absolutely-positioned elements so CSS animation works reliably */}
         {Array.from({ length: 20 }).map((_, i) => {
-          const startX = 260 + (i * 19) % 220;
-          const startY = 220 + (i * 27) % 260;
+          const startX = (260 + (i * 19) % 220) * 0.55;
+          const startY = (220 + (i * 27) % 260) * 0.55;
           const dur = 10 + (i % 5) * 2.4;
           const delay = i * 1.0;
           return (
@@ -117,7 +117,7 @@ export default function GriefCalendar() {
                 animationDelay: `${delay}s`,
               }}
             >
-              <svg width="28" height="36" viewBox="0 0 12 16">
+              <svg width="16" height="20" viewBox="0 0 12 16">
                 <line x1="6" y1="0" x2="6" y2="10" stroke="#DAD6C4" strokeWidth="0.5" />
                 <circle cx="6" cy="12" r="1.4" fill="#DFDBC9" />
               </svg>
