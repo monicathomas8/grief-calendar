@@ -55,7 +55,7 @@ export default function GriefCalendar() {
         * { box-sizing: border-box; }
         .feather {
           position: absolute;
-          opacity: 0.35;
+          opacity: 0.9;
         }
       `}</style>
 
@@ -123,11 +123,11 @@ export default function GriefCalendar() {
           padding: '56px 48px',
           overflow: 'hidden',
         }}>
-          {/* Signature feather element */}
-          <svg className="feather" width="70" height="70" viewBox="0 0 70 70" style={{ top: 24, right: 24 }}>
-            <path d="M35 4 C 20 14, 14 32, 20 50 C 24 60, 30 65, 35 66 C 32 55, 33 44, 38 34 C 42 26, 48 20, 55 16 C 46 10, 40 6, 35 4 Z"
-              fill="none" stroke="#B8AC8F" strokeWidth="1.2" />
-            <line x1="35" y1="6" x2="35" y2="64" stroke="#B8AC8F" strokeWidth="1" />
+          {/* Signature white feather: the same feather as the app icon, a sign that someone is close */}
+          <svg className="feather" width="64" height="64" viewBox="140 70 240 400" style={{ top: 22, right: 22 }} aria-hidden="true">
+            <path d="M300 78 C 360 110, 380 190, 352 262 L 330 252 L 344 276 C 322 330, 280 372, 236 404 L 228 384 L 222 410 C 196 428, 172 438, 158 440 C 150 380, 160 300, 196 228 L 214 238 L 206 214 C 230 160, 262 104, 300 78 Z"
+              fill="#FFFFFF" stroke="#C9C2B0" strokeWidth="4" />
+            <path d="M150 462 C 190 380, 240 270, 300 84" fill="none" stroke="#B8B09B" strokeWidth="5" strokeLinecap="round" />
           </svg>
 
           <div style={{

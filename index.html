@@ -2,9 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>grief-calendar</title>
+    <title>Grief Calendar</title>
+    <meta name="description" content="A gentle note for every day of the year, for anyone carrying grief." />
+
+    <!-- Icons: browser tab, and home screen on iPhone -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+    <!-- PWA: the manifest tells phones the app's name, icon and colours -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#5E6B5C" />
+
+    <!-- iPhone: open full-screen like an app when added to the home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Grief Calendar" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   </head>
   <body>
     <div id="root"></div>
