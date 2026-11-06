@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { NOTES } from '../data/notes.js';
 import PaintingBackground from './PaintingBackground.jsx';
+import HelpPopup from './HelpPopup.jsx';
 
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -60,6 +61,7 @@ export default function GriefCalendar() {
       `}</style>
 
       <PaintingBackground monthIdx={monthIdx} />
+      <HelpPopup />
 
       <div style={{ width: '100%', maxWidth: 560, position: 'relative', zIndex: 1 }}>
 
