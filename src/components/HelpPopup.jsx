@@ -92,6 +92,7 @@ export default function HelpPopup() {
               background: '#FBF9F4', borderRadius: 8,
               padding: '32px 28px 24px',
               fontFamily: "'Inter', sans-serif", color: '#3A362C',
+              textAlign: 'center',
             }}
           >
             <button
@@ -136,8 +137,27 @@ export default function HelpPopup() {
               If you or someone else is in danger right now, please call <a href="tel:999" style={{ color: '#4A5A48', fontWeight: 600 }}>999</a>.
             </p>
 
+            {/* Why I made this: my own words */}
+            <div style={{ borderTop: '1px solid #E6DFD0', padding: '18px 0 4px' }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, fontSize: 22, margin: '0 0 10px' }}>
+                Why I made this
+              </h3>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 17, lineHeight: 1.55, margin: '0 0 10px' }}>
+                I lost my mum three years ago, and for a long time afterwards I felt like I couldn't breathe.
+                I lost my stepdad ten years ago. I love him and I still miss him every day.
+              </p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 17, lineHeight: 1.55, margin: '0 0 10px' }}>
+                Grief changes your whole world, while everyone around you carries on as if nothing has changed.
+                I made this calendar for the days that feel like that: one small note at a time, to remind you
+                that what you're feeling is real, and that you're not alone in it.
+              </p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontSize: 18, margin: '0 0 18px' }}>
+                Monica 🤍
+              </p>
+            </div>
+
             {/* About and support the app */}
-            <div style={{ borderTop: '1px solid #E6DFD0', paddingTop: 16, textAlign: 'center' }}>
+            <div style={{ borderTop: '1px solid #E6DFD0', paddingTop: 16 }}>
               <p style={{ fontSize: 13, color: '#6B624F', margin: '0 0 12px' }}>
                 Made with care by{' '}
                 <a href="https://www.monica-webdeveloper.com/" target="_blank" rel="noopener" style={{ color: '#4A5A48' }}>
@@ -163,6 +183,9 @@ export default function HelpPopup() {
                 </a>
                 </>
               )}
+              <p style={{ fontSize: 11, color: '#8A7F68', margin: '18px 0 0' }}>
+                © 2026 Monica Thomas. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
