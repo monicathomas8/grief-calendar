@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { NOTES } from '../data/notes.js';
+import PaintingBackground from './PaintingBackground.jsx';
 
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -42,6 +43,7 @@ export default function GriefCalendar() {
     <div style={{
       minHeight: '100vh',
       background: '#EFEBE2',
+      position: 'relative',
       fontFamily: "'Inter', -apple-system, sans-serif",
       display: 'flex',
       alignItems: 'center',
@@ -55,76 +57,9 @@ export default function GriefCalendar() {
           position: absolute;
           opacity: 0.35;
         }
-        @keyframes seedDrift {
-          0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-          8% { opacity: 0.75; }
-          85% { opacity: 0.5; }
-          100% { transform: translate(340px, -190px) rotate(70deg); opacity: 0; }
-        }
-        @keyframes stemSway {
-          0%, 100% { transform: rotate(-2deg); }
-          50% { transform: rotate(2deg); }
-        }
-        .seed {
-          position: absolute;
-          animation-name: seedDrift;
-          animation-timing-function: ease-in;
-          animation-iteration-count: infinite;
-        }
-        .stem-group {
-          animation: stemSway 4.5s ease-in-out infinite;
-          transform-origin: bottom center;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .seed { animation: none; opacity: 0.25; }
-          .stem-group { animation: none; }
-        }
       `}</style>
 
-      {/* Dandelion background — scaled down and tucked in so it clears the card */}
-      <div style={{ position: 'fixed', left: -30, bottom: -20, width: 430, height: 495, pointerEvents: 'none', zIndex: 0 }} aria-hidden="true">
-        <svg width="430" height="495" viewBox="0 0 260 320" className="stem-group" style={{ position: 'absolute', left: 0, top: 0, width: 430, height: 495 }}>
-          <path d="M130 320 C 128 260, 132 210, 130 150" stroke="#B0AB92" strokeWidth="2.2" fill="none" />
-          {Array.from({ length: 26 }).map((_, i) => {
-            const angle = (i / 26) * Math.PI * 1.6 - Math.PI * 0.8;
-            const len = 36 + (i % 4) * 3;
-            const x1 = 130 + Math.cos(angle) * 6;
-            const y1 = 150 + Math.sin(angle) * 6;
-            const x2 = 130 + Math.cos(angle) * len;
-            const y2 = 150 + Math.sin(angle) * len;
-            return (
-              <g key={i}>
-                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#DAD6C4" strokeWidth="0.6" />
-                <circle cx={x2} cy={y2} r="1.8" fill="#DFDBC9" />
-              </g>
-            );
-          })}
-        </svg>
-
-        {/* drifting seeds — separate absolutely-positioned elements so CSS animation works reliably */}
-        {Array.from({ length: 20 }).map((_, i) => {
-          const startX = (260 + (i * 19) % 220) * 0.55;
-          const startY = (220 + (i * 27) % 260) * 0.55;
-          const dur = 10 + (i % 5) * 2.4;
-          const delay = i * 1.0;
-          return (
-            <div
-              key={`seed-${i}`}
-              className="seed"
-              style={{
-                left: startX, top: startY,
-                animationDuration: `${dur}s`,
-                animationDelay: `${delay}s`,
-              }}
-            >
-              <svg width="16" height="20" viewBox="0 0 12 16">
-                <line x1="6" y1="0" x2="6" y2="10" stroke="#DAD6C4" strokeWidth="0.5" />
-                <circle cx="6" cy="12" r="1.4" fill="#DFDBC9" />
-              </svg>
-            </div>
-          );
-        })}
-      </div>
+      <PaintingBackground monthIdx={monthIdx} />
 
       <div style={{ width: '100%', maxWidth: 560, position: 'relative', zIndex: 1 }}>
 
@@ -148,10 +83,11 @@ export default function GriefCalendar() {
               fontSize: 14,
               fontWeight: 500,
               color: '#5B5648',
-              background: 'transparent',
+              background: 'rgba(251, 249, 244, 0.85)',
               border: 'none',
+              borderRadius: 20,
               cursor: 'pointer',
-              padding: '6px 4px',
+              padding: '6px 12px',
             }}
           >
             {MONTHS.map((m, i) => <option key={m} value={i}>{m}</option>)}
@@ -164,7 +100,7 @@ export default function GriefCalendar() {
               fontSize: 13,
               fontWeight: 500,
               color: '#8A6A52',
-              background: 'transparent',
+              background: 'rgba(251, 249, 244, 0.85)',
               border: '1px solid #D8CFBE',
               borderRadius: 20,
               padding: '6px 16px',
@@ -178,7 +114,10 @@ export default function GriefCalendar() {
         {/* Main card */}
         <div style={{
           position: 'relative',
-          background: '#FBF9F4',
+          // Frosted card: the painting glows through, but the words stay easy to read
+          background: 'rgba(251, 249, 244, 0.82)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
           borderRadius: 4,
           border: '1px solid #DDD4C2',
           padding: '56px 48px',
@@ -242,9 +181,10 @@ export default function GriefCalendar() {
 const navBtnStyle = {
   fontFamily: "'Inter', sans-serif",
   fontSize: 13,
-  color: '#8A7F68',
-  background: 'transparent',
+  color: '#6B624F',
+  background: 'rgba(251, 249, 244, 0.85)',
   border: 'none',
+  borderRadius: 20,
   cursor: 'pointer',
-  padding: '8px 4px',
+  padding: '8px 14px',
 };
