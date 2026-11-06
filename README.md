@@ -2,7 +2,7 @@
 
 A gentle note for every day of the year, for anyone carrying grief.
 
-**Live app:** [monicathomas8.github.io/grief-calendar](https://monicathomas8.github.io/grief-calendar/)
+**Live app:** [griefcalendar.monicasweb.co.uk](https://griefcalendar.monicasweb.co.uk/)
 
 ## Why I made this
 
